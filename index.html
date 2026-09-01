@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Trama Creative Print Studio</title>
+    
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Configuración de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tramaRed: '#FF1A1A', 
+                        tramaBlack: '#0A0A0A',
+                        tramaDark: '#1A1A1A',
+                        tramaGray: '#F4F4F5',
+                        tramaPink: '#FFE3E3',
+                        tramaBeige: '#FFF3E6',
+                    },
+                    fontFamily: {
+                        display: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Caveat', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #FDFDFD; overflow-x: hidden; }
+        
+        ::selection { background-color: #FF1A1A; color: #FFFFFF; }
+
+        /* Efecto de subrayado a mano */
+        .drawn-underline {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .drawn-underline::after {
+            content: '';
+            position: absolute;
+            width: 105%;
+            height: 12px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0 5 Q 50 10 100 2' stroke='%23FF1A1A' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            bottom: -2px;
+            left: -2.5%;
+            z-index: -1;
+        }
+
+        /* Animación marquesina infinita */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        /* Animación flotante para badges */
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="font-display text-tramaBlack antialiased">
+
+    <!-- Floating Navbar -->
+    <div class="fixed top-0 w-full z-50 pt-6 px-4 pointer-events-none flex justify-center">
+        <nav class="bg-white/80 backdrop-blur-xl pointer-events-auto border border-gray-200/50 rounded-full px-6 py-3 shadow-sm shadow-gray-200/20 flex items-center justify-between w-full max-w-5xl transition-all">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-1 group" aria-label="Inicio">
+                <span class="text-2xl font-bold tracking-tight text-tramaBlack group-hover:text-tramaRed transition-colors">trama</span>
+                <span class="text-tramaRed text-xl font-black mt-1">*</span>
+            </a>
+
+            <!-- Links Multipágina (Desktop) -->
+            <div class="hidden md:flex items-center gap-8 ml-8">
+                <a href="index.html" class="text-sm font-medium text-tramaRed transition-colors">Inicio</a>
+                <a href="catalogo.html" class="text-sm font-medium text-gray-600 hover:text-tramaRed transition-colors">Catálogo</a>
+                <a href="contacto.html" class="text-sm font-medium text-gray-600 hover:text-tramaRed transition-colors">Contacto</a>
+            </div>
+
+            <!-- Botón CTA de Contacto -->
+            <div class="ml-auto md:ml-8">
+                <a href="contacto.html" class="bg-tramaBlack text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-tramaRed transition-all shadow-md hover:shadow-tramaRed/30 flex items-center gap-2">
+                    <span>Cotizar</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-24 lg:pt-52 lg:pb-32 px-6 overflow-hidden">
+        <!-- Elementos decorativos de fondo -->
+        <div class="absolute top-20 -left-20 w-72 h-72 bg-tramaPink rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+        <div class="absolute top-40 -right-20 w-72 h-72 bg-tramaBeige rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <!-- Etiqueta Flotante -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-tramaGray border border-gray-200 mb-8 float-anim">
+                <span class="w-2 h-2 rounded-full bg-tramaRed animate-pulse"></span>
+                <span class="text-xs font-semibold tracking-widest uppercase text-gray-500">Estudio Creativo & Impresión</span>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-tramaBlack leading-[1.1] mb-8 tracking-tight">
+                Creamos productos <br class="hidden sm:block"> 
+                <span class="font-serif italic text-tramaBlack font-medium mr-2">exclusivos y</span> 
+                <span class="drawn-underline text-tramaBlack">únicos.</span>
+            </h1>
+
+            <!-- Subtítulo -->
+            <p class="text-lg sm:text-xl text-gray-500 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+                Diseños 100% personalizados para cumpleaños, bodas, baby shower, bautizos y la identidad visual de tu negocio.
+            </p>
+
+            <!-- Botones de Acción (Nuevos Enlaces) -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="contacto.html" class="w-full sm:w-auto bg-tramaRed text-white px-8 py-4 rounded-full text-base font-medium hover:bg-red-700 transition-all duration-300 shadow-lg shadow-tramaRed/25 hover:-translate-y-1 flex items-center justify-center gap-2">
+                    Solicitar Cotización
+                </a>
+                <a href="catalogo.html" class="w-full sm:w-auto bg-white text-tramaBlack border-2 border-gray-200 px-8 py-4 rounded-full text-base font-medium hover:border-tramaBlack transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2">
+                    Ver Catálogo
+                </a>
+            </div>
+            
+            <!-- Beneficios -->
+            <div class="mt-16 pt-8 border-t border-gray-100 flex flex-wrap justify-center gap-8 text-sm font-medium text-gray-500">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-tramaRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    Diseñamos con amor
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-tramaRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Entregas puntuales
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-tramaRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    100% Personalizado
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Banner (Solid Red) -->
+    <section class="bg-tramaRed py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
+                Diseño profesional. <br>
+                <span class="font-script text-5xl md:text-6xl text-tramaPink font-normal">Original.</span> Hecho en familia.
+            </h2>
+            <p class="text-white/90 text-lg md:text-xl font-light max-w-md md:text-right border-l-4 md:border-l-0 md:border-r-4 border-tramaPink pl-4 md:pl-0 md:pr-4 py-2">
+                Nuestra esencia es convertir tus ideas en piezas tangibles que generan impacto visual.
+            </p>
+        </div>
+    </section>
+
+    <!-- Marquee Banner Strip -->
+    <div class="bg-tramaBlack text-white py-4 overflow-hidden border-b-4 border-tramaRed">
+        <div class="animate-marquee flex items-center space-x-8">
+            <div class="flex items-center space-x-8">
+                <span class="text-tramaRed font-bold text-xl">*</span>
+                <span class="text-sm font-medium tracking-[0.2em] uppercase">Diseñamos</span>
+                <span class="text-tramaRed font-bold text-xl">*</span>
+                <span class="text-sm font-medium tracking-[0.2em] uppercase">Estampamos</span>
+                <span class="text-tramaRed font-bold text-xl">*</span>
+                <span class="text-sm font-medium tracking-[0.2em] uppercase">Sublimamos</span>
+                <span class="text-tramaRed font-bold text-xl">*</span>
+                <span class="text-sm font-medium tracking-[0.2em] uppercase">Personalizamos</span>
+            </div>
+            <div class="flex items-center space-x-8">
+                <span class="text-tramaRed font-bold text-xl">*</span>
+                <span class="text-sm font-medium tracking-[0.2em] uppercase">Diseñamos</span>
+                <span class="text-tramaRed font-bold text-xl">*</span>
+                <span class="text-sm font-medium tracking-[0.2em] uppercase">Estampamos</span>
+                <span class="text-tramaRed font-bold text-xl">*</span>
+                <span class="text-sm font-medium tracking-[0.2em] uppercase">Sublimamos</span>
+                <span class="text-tramaRed font-bold text-xl">*</span>
+                <span class="text-sm font-medium tracking-[0.2em] uppercase">Personalizamos</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-tramaBlack text-white py-16 px-6 border-t-4 border-tramaRed mt-auto">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-1">
+                <span class="text-3xl font-bold tracking-tight text-white">trama</span>
+                <span class="text-tramaRed text-2xl font-black mt-1">*</span>
+            </div>
+
+            <p class="text-xs text-gray-400 text-center md:text-left">
+                © 2026 Trama Studio. Todos los derechos reservados. <br class="sm:hidden">
+                Diseños e impresiones hechas con pasión.
+            </p>
+
+            <!-- Redes Sociales -->
+            <div class="flex items-center gap-4">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/profile.php?id=61593781389291&rdid=AiFRZNBLSA8vbVbx&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19CMjYtheN%2F#" target="_blank" aria-label="Visita nuestro perfil de Facebook" class="bg-white/10 hover:bg-tramaRed text-white p-3 rounded-full transition-colors flex items-center gap-2 text-sm font-medium">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <span>Facebook</span>
+                </a>
+                <!-- WhatsApp -->
+                <a href="https://wa.me/51970554117?text=Hola,%20quiero%20saber%20más" target="_blank" aria-label="Envíanos un mensaje por WhatsApp" class="bg-white/10 hover:bg-green-600 text-white p-3 rounded-full transition-colors flex items-center gap-2 text-sm font-medium">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

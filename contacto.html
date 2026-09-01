@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Trama Creative Print Studio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tramaRed: '#FF1A1A', 
+                        tramaBlack: '#0A0A0A',
+                        tramaDark: '#1A1A1A',
+                        tramaGray: '#F4F4F5',
+                        tramaPink: '#FFE3E3',
+                        tramaBeige: '#FFF3E6',
+                    },
+                    fontFamily: {
+                        display: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Caveat', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #FDFDFD; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh;}
+        ::selection { background-color: #FF1A1A; color: #FFFFFF; }
+    </style>
+</head>
+<body class="font-display text-tramaBlack antialiased">
+
+    <!-- Floating Navbar -->
+    <div class="fixed top-0 w-full z-50 pt-6 px-4 pointer-events-none flex justify-center">
+        <nav class="bg-white/80 backdrop-blur-xl pointer-events-auto border border-gray-200/50 rounded-full px-6 py-3 shadow-sm shadow-gray-200/20 flex items-center justify-between w-full max-w-5xl transition-all">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-1 group" aria-label="Inicio">
+                <span class="text-2xl font-bold tracking-tight text-tramaBlack group-hover:text-tramaRed transition-colors">trama</span>
+                <span class="text-tramaRed text-xl font-black mt-1">*</span>
+            </a>
+
+            <!-- Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-8 ml-8">
+                <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-tramaRed transition-colors">Inicio</a>
+                <a href="catalogo.html" class="text-sm font-medium text-gray-600 hover:text-tramaRed transition-colors">Catálogo</a>
+                <a href="contacto.html" class="text-sm font-medium text-tramaRed transition-colors">Contacto</a>
+            </div>
+
+            <!-- Botón CTA de Contacto -->
+            <div class="ml-auto md:ml-8">
+                <a href="contacto.html" class="bg-tramaRed text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-red-700 transition-all shadow-md shadow-tramaRed/30 flex items-center gap-2">
+                    <span>Cotizar</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Formulario de Contacto y Cotización -->
+    <section class="pt-40 pb-24 px-6 bg-tramaBeige/20 relative flex-grow">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-gray-100 mt-4">
+            <div class="text-center mb-10">
+                <span class="font-script text-3xl text-tramaRed inline-block mb-1">Hablemos de tu idea</span>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-tramaBlack">Solicita tu Cotización</h1>
+                <p class="text-gray-500 text-sm md:text-base mt-2">Completa los datos de tu evento y nos pondremos en contacto contigo de inmediato.</p>
+            </div>
+
+            <form id="quoteForm" onsubmit="submitQuoteForm(event)" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Nombre -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2" for="nombre">Nombre *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" class="w-full bg-tramaGray/50 border border-gray-200 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-tramaRed transition-colors">
+                    </div>
+                    <!-- Apellido -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2" for="apellido">Apellido *</label>
+                        <input type="text" id="apellido" name="apellido" required placeholder="Tu apellido" class="w-full bg-tramaGray/50 border border-gray-200 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-tramaRed transition-colors">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Teléfono / Celular (NUEVO) -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2" for="telefono">Celular / WhatsApp *</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 999 888 777" class="w-full bg-tramaGray/50 border border-gray-200 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-tramaRed transition-colors">
+                    </div>
+                    <!-- Tipo de Evento -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2" for="tipoEvento">Tipo de Evento *</label>
+                        <select id="tipoEvento" name="tipoEvento" required class="w-full bg-tramaGray/50 border border-gray-200 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-tramaRed transition-colors">
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="Cumpleaños">Cumpleaños</option>
+                            <option value="Bodas">Bodas</option>
+                            <option value="15 Años">15 Años</option>
+                            <option value="Baby Shower">Baby Shower</option>
+                            <option value="Bautizo">Bautizo</option>
+                            <option value="Identidad Comercial">Identidad Comercial / Negocio</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+                     <!-- Temática -->
+                     <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2" for="tematica">Temática / Estilo *</label>
+                        <input type="text" id="tematica" name="tematica" required placeholder="Ej: Floral elegante, Minimalista, Safari..." class="w-full bg-tramaGray/50 border border-gray-200 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-tramaRed transition-colors">
+                    </div>
+                </div>
+
+
+                <!-- Detalles -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2" for="detalles">Detalles del Proyecto *</label>
+                    <textarea id="detalles" name="detalles" rows="4" required placeholder="Cantidad aproximada de invitados, colores preferidos, fecha del evento..." class="w-full bg-tramaGray/50 border border-gray-200 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-tramaRed transition-colors"></textarea>
+                </div>
+
+                <!-- Botón Enviar -->
+                <button type="submit" id="submitBtn" class="w-full bg-tramaRed text-white py-4 rounded-2xl font-bold tracking-wide hover:bg-red-700 transition-all shadow-lg shadow-tramaRed/25 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed">
+                    <span id="btnText">Enviar Cotización</span>
+                    <svg id="btnIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                     <!-- Spinner oculto por defecto -->
+                     <svg id="btnSpinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </button>
+                
+                <!-- Mensajes de Feedback -->
+                <div id="formSuccess" class="text-center text-sm font-medium text-green-600 hidden bg-green-50 p-4 rounded-xl border border-green-200">
+                    ¡Gracias! Hemos recibido tu solicitud. Nos pondremos en contacto pronto.
+                </div>
+                <div id="formError" class="text-center text-sm font-medium text-red-600 hidden bg-red-50 p-4 rounded-xl border border-red-200">
+                    Ocurrió un error al enviar el formulario. Por favor, intenta de nuevo o contáctanos directamente.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tramaBlack text-white py-16 px-6 border-t-4 border-tramaRed">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-1">
+                <span class="text-3xl font-bold tracking-tight text-white">trama</span>
+                <span class="text-tramaRed text-2xl font-black mt-1">*</span>
+            </div>
+
+            <p class="text-xs text-gray-400 text-center md:text-left">
+                © 2026 Trama Studio. Todos los derechos reservados. <br class="sm:hidden">
+                Diseños e impresiones hechas con pasión.
+            </p>
+
+            <!-- Redes Sociales -->
+            <div class="flex items-center gap-4">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/profile.php?id=61593781389291&rdid=AiFRZNBLSA8vbVbx&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19CMjYtheN%2F#" target="_blank" aria-label="Visita nuestro perfil de Facebook" class="bg-white/10 hover:bg-tramaRed text-white p-3 rounded-full transition-colors flex items-center gap-2 text-sm font-medium">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <span>Facebook</span>
+                </a>
+                <!-- WhatsApp -->
+                <a href="https://wa.me/51970554117?text=Hola,%20quiero%20saber%20más" target="_blank" aria-label="Envíanos un mensaje por WhatsApp" class="bg-white/10 hover:bg-green-600 text-white p-3 rounded-full transition-colors flex items-center gap-2 text-sm font-medium">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Leer el parámetro de URL si el usuario viene del Catálogo
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const evento = urlParams.get('evento');
+            
+            if (evento) {
+                const selectElem = document.getElementById('tipoEvento');
+                if (selectElem) {
+                    selectElem.value = evento;
+                }
+            }
+        });
+
+        // URL de tu Web App de Google Apps Script
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyDSkG1PmZnfkqXKih-8NbfC6K3vN2ovUN1VB3i8LRJqtIbpkNYBG0NN2FwFwrQPz3wZQ/exec'; 
+
+        // Envío de Formulario a Google Sheets
+        function submitQuoteForm(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            const btnSpinner = document.getElementById('btnSpinner');
+            
+            const formSuccess = document.getElementById('formSuccess');
+            const formError = document.getElementById('formError');
+
+            // Estado de "Enviando"
+            submitBtn.disabled = true;
+            btnText.textContent = 'Enviando...';
+            btnIcon.classList.add('hidden');
+            btnSpinner.classList.remove('hidden');
+            
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+
+            // Crear FormData a partir del formulario
+            const formData = new FormData(form);
+
+            // Enviar datos usando fetch a Google Apps Script
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // IMPORTANTE: Evita el bloqueo de CORS de Google
+                body: formData
+            })
+            .then(() => {
+                // Al usar no-cors, asumimos éxito si la red funciona
+                formSuccess.classList.remove('hidden');
+                form.reset(); // Limpiar el formulario
+            })
+            .catch(error => {
+                // Error de red
+                formError.classList.remove('hidden');
+                console.error('Error al enviar el formulario:', error);
+            })
+            .finally(() => {
+                // Restaurar estado del botón
+                submitBtn.disabled = false;
+                btnText.textContent = 'Enviar Cotización';
+                btnIcon.classList.remove('hidden');
+                btnSpinner.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
